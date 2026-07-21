@@ -74,7 +74,7 @@ Cleaning steps performed:
 
 ---
 
-## 1️⃣ Companies with the Highest Layoffs
+## 1️ Companies with the Highest Layoffs
 
 ### Business Question
 
@@ -114,7 +114,7 @@ ORDER BY total_laid_off DESC;
 
 Amazon, Google, and Meta ranked among the companies with the highest layoffs, demonstrating that workforce reductions were not limited to struggling businesses. Instead, even industry leaders restructured their workforce to adapt to changing business priorities.
 
-## 2️⃣ Industries Most Affected
+## 2️ Industries Most Affected
 
 ### Business Question
 
@@ -154,7 +154,7 @@ ORDER BY total_laid_off DESC;
 
 Consumer, Retail, and Finance recorded the highest layoffs, indicating that workforce reductions were concentrated across multiple major industries rather than a single sector. This highlights the broad impact of changing economic conditions on business operations.
 
-## 3️⃣ Countries with the Highest Layoffs
+## 3️ Countries with the Highest Layoffs
 
 ### Business Question
 
@@ -195,7 +195,7 @@ ORDER BY total_laid_off DESC;
 The United States accounts for the majority of recorded layoffs by a wide margin, suggesting that global workforce reductions were heavily concentrated in markets where large multinational and technology companies are headquartered.
 
 
-## 4️⃣ Layoffs by Year
+## 4️ Layoffs by Year
 
 ### Business Question
 
@@ -230,7 +230,7 @@ ORDER BY YEAR(date);
 Layoffs increased significantly in **2022**, marking the highest number of workforce reductions in the dataset. While layoffs remained elevated in **2023**, the decrease compared to 2022 suggests organizations began stabilizing after widespread restructuring efforts.
 
 
-## 5️⃣ Rolling Layoff Trend
+## 5️ Rolling Layoff Trend
 
 ### Business Question
 
@@ -281,7 +281,7 @@ FROM Rolling_Total;
 The rolling total of layoffs increased throughout 2020 to early 2023, showing that workforce reductions continued over multiple years. This suggests companies responded to changing economic conditions with ongoing layoffs rather than a single round of job cuts.
 
 
-## 6️⃣ Top Companies by Layoffs Each Year
+## 6️ Top Companies by Layoffs Each Year
 
 ### Business Question
 
