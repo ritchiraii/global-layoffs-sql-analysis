@@ -319,9 +319,28 @@ WHERE Ranking <=5;
 
 ### Query Output
 
-<p align="center">
-    <img src="top_companies_by_year.png" width="700">
-</p>
+| Year | Rank | Company | Total Employees Laid Off |
+|:----:|:---:|----------------|-------------------------:|
+| 2020 | 1 | Uber | 7,525 |
+| 2020 | 2 | Booking.com | 4,375 |
+| 2020 | 3 | Groupon | 2,800 |
+| 2020 | 4 | Swiggy | 2,250 |
+| 2020 | 5 | Airbnb | 1,900 |
+| 2021 | 1 | Bytedance | 3,600 |
+| 2021 | 2 | Katerra | 2,434 |
+| 2021 | 3 | Zillow | 2,000 |
+| 2021 | 4 | Instacart | 1,877 |
+| 2021 | 5 | WhiteHat Jr | 1,800 |
+| 2022 | 1 | Meta | 11,000 |
+| 2022 | 2 | Amazon | 10,150 |
+| 2022 | 3 | Cisco | 4,100 |
+| 2022 | 4 | Peloton | 4,084 |
+| 2022 | 5 | Carvana / Philips *(Tie)* | 4,000 |
+| 2023 | 1 | Google | 12,000 |
+| 2023 | 2 | Microsoft | 10,000 |
+| 2023 | 3 | Ericsson | 8,500 |
+| 2023 | 4 | Amazon / Salesforce *(Tie)* | 8,000 |
+| 2023 | 5 | Dell | 6,650 |
 
 ### Business Insight
 
