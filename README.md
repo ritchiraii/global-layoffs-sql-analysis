@@ -112,8 +112,7 @@ ORDER BY total_laid_off DESC;
 
 ### Business Insight
 
-**Large technology companies accounted for the highest workforce reductions, indicating that even market-leading organizations implemented significant cost optimization and restructuring efforts during the observed period.
-**---
+Amazon, Google, and Meta ranked among the companies with the highest layoffs, demonstrating that workforce reductions were not limited to struggling businesses. Instead, even industry leaders restructured their workforce to adapt to changing business priorities.
 
 ## 2️⃣ Industries Most Affected
 
@@ -153,8 +152,7 @@ ORDER BY total_laid_off DESC;
 
 ### Business Insight
 
-** The concentration of layoffs across consumer-facing industries highlights that changing market conditions affected demand-driven businesses more significantly than others, resulting in widespread workforce restructuring
-**---
+Consumer, Retail, and Finance recorded the highest layoffs, indicating that workforce reductions were concentrated across multiple major industries rather than a single sector. This highlights the broad impact of changing economic conditions on business operations.
 
 ## 3️⃣ Countries with the Highest Layoffs
 
@@ -196,7 +194,6 @@ ORDER BY total_laid_off DESC;
 
 The United States accounts for the majority of recorded layoffs by a wide margin, suggesting that global workforce reductions were heavily concentrated in markets where large multinational and technology companies are headquartered.
 
----
 
 ## 4️⃣ Layoffs by Year
 
@@ -230,8 +227,8 @@ ORDER BY YEAR(date);
 
 ### Business Insight
 
-**Layoffs increased significantly in **2022**, marking the highest number of workforce reductions in the dataset. While layoffs remained elevated in **2023**, the decrease compared to 2022 suggests organizations began stabilizing after widespread restructuring efforts.
-**---
+Layoffs increased significantly in **2022**, marking the highest number of workforce reductions in the dataset. While layoffs remained elevated in **2023**, the decrease compared to 2022 suggests organizations began stabilizing after widespread restructuring efforts.
+
 
 ## 5️⃣ Rolling Layoff Trend
 
@@ -247,31 +244,42 @@ How did cumulative layoffs evolve over time?
 WITH Rolling_Total AS
 (
 SELECT
-SUBSTRING(date,1,7) AS Month,
+SUBSTRING(`date`,1,7) AS `MONTH`,
 SUM(total_laid_off) AS total_off
 FROM layoffs_staging2
-GROUP BY Month
+WHERE SUBSTRING(`date`,1,7) IS NOT NULL
+GROUP BY `MONTH`
+ORDER BY 1 ASC
 )
-
-SELECT
-Month,
+SELECT 
+`MONTH`,
 SUM(total_off)
-OVER(ORDER BY Month)
+OVER(ORDER BY `MONTH`) AS rolling_total
 FROM Rolling_Total;
+
 ```
 
 </details>
 
 ### Query Output
 
-<p align="center">
-    <img src="rolling_total.png" width="700">
-</p>
+| Month | Rolling Total |
+|--------|--------------:|
+| 2020-03 | 9,628 |
+| 2020-04 | 36,338 |
+| 2020-05 | 62,142 |
+| ... | ... |
+| 2023-01 | 331,839 |
+| 2023-02 | 364,895 |
+| 2023-03 | 383,159 |
+
+> **Note:** Only a sample of the rolling totals is shown for readability. The complete output can be reproduced by running the SQL query.
+
 
 ### Business Insight
 
-**The rolling total of layoffs increased throughout 2020 to early 2023, showing that workforce reductions continued over multiple years. This suggests companies responded to changing economic conditions with ongoing layoffs rather than a single round of job cuts.
-**---
+The rolling total of layoffs increased throughout 2020 to early 2023, showing that workforce reductions continued over multiple years. This suggests companies responded to changing economic conditions with ongoing layoffs rather than a single round of job cuts.
+
 
 ## 6️⃣ Top Companies by Layoffs Each Year
 
@@ -317,8 +325,8 @@ WHERE Ranking <=5;
 
 ### Business Insight
 
-** The companies with the highest layoffs changed each year. For example, Uber had the highest layoffs in 2020, Bytedance in 2021, Meta in 2022, and Google in 2023. This shows that workforce reductions affected different companies over time as business priorities and market conditions evolved.
-**---
+The companies with the highest layoffs changed each year. For example, Uber had the highest layoffs in 2020, Bytedance in 2021, Meta in 2022, and Google in 2023. This shows that workforce reductions affected different companies over time as business priorities and market conditions evolved.
+
 #  Key Business Insights
 
 - Technology companies accounted for a significant proportion of global layoffs.
