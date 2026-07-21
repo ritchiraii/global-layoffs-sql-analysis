@@ -264,7 +264,14 @@ FROM Rolling_Total;
 
 ### Query Output
 
-![Rolling Total](images/rolling_total.png)
+<p align="center">
+    <img src="images/rolling_total.png" width="700">
+</p>
+
+<p align="center">
+<i>Figure 1: Rolling cumulative layoffs using a SQL Window Function.</i>
+</p>
+
 
 ### Business Insight
 
@@ -309,7 +316,13 @@ WHERE Ranking <=5;
 
 ### Query Output
 
-![Company Ranking](images/company_year_rank.png)
+<p align="center">
+    <img src="images/top_companies_by_year.png" width="700">
+</p>
+
+<p align="center">
+<i>Figure 2: Top 5 companies by layoffs each year using a CTE and DENSE_RANK().</i>
+</p>
 
 ### Business Insight
 
