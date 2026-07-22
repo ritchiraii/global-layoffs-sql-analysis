@@ -146,18 +146,6 @@ The dataset consists of the following business attributes:
 
 ---
 
-# Tools & Technologies
-
-| Tool | Purpose |
-|------|---------|
-| **SQL** | Data cleaning, transformation, querying, and exploratory analysis |
-| **MySQL** | Relational database management and SQL execution |
-| **Git** | Version control and change tracking |
-| **GitHub** | Project documentation and portfolio hosting |
-| **Markdown** | Technical documentation and project presentation |
-
----
-
 # Data Quality Challenges
 
 The raw dataset contained several quality issues that required preprocessing before meaningful analysis could be performed.
