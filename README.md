@@ -304,6 +304,30 @@ This analysis helps stakeholders understand which business sectors were most imp
 
 The dataset was grouped by **industry**, and the total number of employees laid off was calculated using the `SUM()` aggregate function. The results were then sorted in descending order to identify the industries that experienced the highest workforce reductions across the analysis period.
 
+
+---
+
+## SQL Query
+
+
+<details>
+
+<summary>View SQL Query</summary>
+
+```sql
+SELECT
+industry,
+SUM(total_laid_off) AS total_laid_off
+FROM layoffs_staging2
+GROUP BY industry
+ORDER BY total_laid_off DESC;
+```
+
+</details>
+
+
+---
+
 ## Key Metrics
 
 | Metric | Value |
@@ -353,6 +377,31 @@ This analysis provides geographic insights into where workforce restructuring wa
 ## Analytical Approach
 
 The dataset was grouped by **country**, and the total number of employees laid off was calculated using SQL aggregate functions. The results were ranked in descending order to identify the countries with the highest recorded workforce reductions.
+
+
+---
+
+
+## SQL Query
+
+<details>
+
+<summary>View SQL Query</summary>
+
+```sql
+SELECT
+country,
+SUM(total_laid_off) AS total_laid_off
+FROM layoffs_staging2
+GROUP BY country
+ORDER BY total_laid_off DESC;
+```
+
+</details>
+
+
+---
+
 
 ## Key Metrics
 
@@ -404,6 +453,31 @@ Examining annual trends helps identify periods of increased organizational restr
 
 The layoff announcement dates were converted into yearly values using the `YEAR()` date function. Total layoffs were then aggregated for each year and arranged chronologically to identify long-term workforce reduction trends.
 
+
+---
+
+
+## SQL Query
+
+<details>
+
+<summary>View SQL Query</summary>
+
+```sql
+SELECT
+YEAR(date),
+SUM(total_laid_off)
+FROM layoffs_staging2
+GROUP BY YEAR(date)
+ORDER BY YEAR(date);
+```
+
+</details>
+
+
+---
+
+
 ## Key Metrics
 
 | Metric | Value |
@@ -447,6 +521,40 @@ Rolling trend analysis provides a clearer understanding of how layoffs accumulat
 ## Analytical Approach
 
 Monthly layoff totals were first calculated by grouping records based on the announcement month. A SQL Window Function (`SUM() OVER`) was then applied to calculate the cumulative (rolling) total of layoffs, enabling the analysis of long-term workforce reduction trends.
+
+
+---
+
+
+## SQL Query
+
+<details>
+
+<summary>View SQL Query</summary>
+
+```sql
+WITH Rolling_Total AS
+(
+SELECT
+SUBSTRING(`date`,1,7) AS `MONTH`,
+SUM(total_laid_off) AS total_off
+FROM layoffs_staging2
+WHERE SUBSTRING(`date`,1,7) IS NOT NULL
+GROUP BY `MONTH`
+ORDER BY 1 ASC
+)
+SELECT 
+`MONTH`,
+SUM(total_off)
+OVER(ORDER BY `MONTH`) AS rolling_total
+FROM Rolling_Total;
+```
+
+</details>
+
+
+---
+
 
 ## Key Metrics
 
@@ -495,6 +603,46 @@ Yearly rankings provide insights into how organizational restructuring shifted a
 ## Analytical Approach
 
 The dataset was grouped by **company** and **year**, and total layoffs were calculated for each organization. The `DENSE_RANK()` window function was then used to rank companies within each year based on their workforce reductions, allowing the top-performing organizations to be identified annually.
+
+
+---
+
+
+## SQL Query
+
+<details>
+
+<summary>View SQL Query</summary>
+
+```sql
+WITH Company_Year AS
+(
+SELECT
+company,
+YEAR(date) AS years,
+SUM(total_laid_off) AS total_laid_off
+FROM layoffs_staging2
+GROUP BY company,YEAR(date)
+),
+
+Company_Year_Rank AS
+(
+SELECT *,
+DENSE_RANK()
+OVER(PARTITION BY years ORDER BY total_laid_off DESC) Ranking
+FROM Company_Year
+)
+
+SELECT *
+FROM Company_Year_Rank
+WHERE Ranking <=5;
+```
+
+</details>
+
+
+---
+
 
 ## Results
 
