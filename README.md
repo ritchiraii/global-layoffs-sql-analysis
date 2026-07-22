@@ -134,18 +134,6 @@ The dataset consists of the following business attributes:
 
 ---
 
-# SQL Environment
-
-| Component | Details |
-|-----------|----------|
-| **Database** | MySQL |
-| **Language** | SQL |
-| **IDE** | MySQL Workbench |
-| **Version Control** | Git |
-| **Repository Hosting** | GitHub |
-
----
-
 # Data Quality Challenges
 
 The raw dataset contained several quality issues that required preprocessing before meaningful analysis could be performed.
