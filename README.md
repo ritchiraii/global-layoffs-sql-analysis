@@ -599,28 +599,6 @@ This project demonstrates an end-to-end SQL analytics workflow, combining data p
 
 ---
 
-# Repository Structure
-
-```
-Global-Layoffs-SQL-Analysis/
-│
-├── Dataset/
-│   └── layoffs.csv
-│
-├── SQL/
-│   ├── 01_data_cleaning.sql
-│   └── 02_exploratory_data_analysis.sql
-│
-├── Images/
-│   ├── project_banner.png
-│   └── schema.png
-│
-├── LICENSE
-└── README.md
-```
-
----
-
 # Potential Enhancements
 
 This project establishes a strong analytical foundation and can be extended through additional reporting and automation capabilities.
