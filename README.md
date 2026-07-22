@@ -1,4 +1,4 @@
-#  Global Layoffs Data Cleaning & Exploratory Data Analysis using MySQL
+#  Global Layoffs Data Cleaning & Exploratory Data Analysis
 
 <p align="center">
 
